@@ -89,4 +89,5 @@ có note tồn tại. -> kiểm trả trong views note có thằng B hay không.
 server hổ trợ.
 
 api/share/check-user -> true -> gọi tiếp một api getNoteByID
+
 api/share/check-user -> fail -> mày không có quyền xem bài note này
