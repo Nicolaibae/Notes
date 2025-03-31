@@ -10,30 +10,29 @@ import morgan from "morgan";
 import fs from "fs";
 import path from "path";
 
-dotenv.config()
-const app = express()
+dotenv.config();
+const app = express();
 app.use(express.json());
-connectDB()
+connectDB();
 
 app.use(
-    cors({
-      origin: "*",
-    })
-  );
-  const logStream = fs.createWriteStream(path.join(__dirname, "access.log"), {
-    flags: "a",
-  });
-  
-  app.use(morgan("dev"));
-  app.use(morgan("combined", { stream: logStream }));
+  cors({
+    origin: "*",
+  })
+);
+const logStream = fs.createWriteStream(path.join(__dirname, "access.log"), {
+  flags: "a",
+});
 
-  app.use("/api/user",userRouter)
-  app.use("/api/note",noteRouter)
-  app.use("/api/auth",authRouter)
-  app.use("/api/share",shareRouter)
+app.use(morgan("dev"));
+app.use(morgan("combined", { stream: logStream }));
+
+app.use("/api/user", userRouter);
+app.use("/api/note", noteRouter);
+app.use("/api/auth", authRouter);
+app.use("/api/share", shareRouter);
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
- 
