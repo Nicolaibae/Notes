@@ -90,3 +90,15 @@ server hổ trợ.
 
 api/share/check-user -> true -> gọi tiếp một api getNoteByID
 api/share/check-user -> fail -> mày không có quyền xem bài note này
+
+/getNoteByID -> 
+cần có một bược nữa.
+
+getNoteByID: id của bài note
+token -> từ header
+token -> user
+user này có phải là user tạo viết không và có phải user nằm trong danh sách views
+trả lỗi.
+
+client có bug check-user trả fail -> getNoteByID không triểm trà
+
